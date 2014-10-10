@@ -1,4 +1,4 @@
-router
+router.js
 ======
 
 基于hash单页路由控制
