@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>简单的页内路由</title>
+	</head>
+	<body singlePage>
+		<div page="index">
+		  <h2>这是首页</h2>
+		  <p>这是一个简单的单页路由</p>
+		</div>
+		<div page="page1">
+		  <h2>这是第一个子页面</h2>
+		  <p>可以无刷新的改变url是不是很酷</p>
+		</div>
+		<div page="page2">
+		  <h2>这是第二个子页面</h2>
+		  <p>你可以试试浏览器的回退按钮，是不是碉堡了</p>
+		</div>
+		<script type="text/javascript" src="../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../libs/router.js"></script>
+		<script type="text/javascript">
+		  var demo = new router({
+		  	controller: {
+              "index": {},
+              "page1": {},
+              "page2": {}
+		  	}
+		 });
+		</script>
+	</body>
+</html>
