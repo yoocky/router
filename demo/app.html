@@ -1,31 +1,66 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>简单的页内路由</title>
+	 	<meta charset="utf-8">		
+	 	<title>简单的页内路由</title>
 	</head>
-	<body singlePage>
+	<body>
+	  <nav>
+	      <a href="#index">首页</a>
+	      <a href="#page1">第一页</a>
+	      <a href="#page2">弟二页</a>
+	  </nav>
+	  <content singlePage>
 		<div page="index">
-		  <h2>这是首页</h2>
-		  <p>这是一个简单的单页路由</p>
+		  <h2>这是 首页</h2>
+		  <p>这是一个简单的单页路由，吸取了angular和backbone的特点，<br>用起来比backbone简单多了，<br/>唯一遗憾的就是不能用pushState</p>
 		</div>
 		<div page="page1">
 		  <h2>这是第一个子页面</h2>
-		  <p>可以无刷新的改变url是不是很酷</p>
+		  <p>很简单的配置</p>
 		</div>
 		<div page="page2">
 		  <h2>这是第二个子页面</h2>
-		  <p>你可以试试浏览器的回退按钮，是不是碉堡了</p>
+		  <p>你可以试试浏览器的回退按钮，是不是碉堡了,更改hash是可以产生历史记录的</p>
 		</div>
-		<script type="text/javascript" src="../libs/zepto.min.js"></script>
-		<script type="text/javascript" src="../libs/router.js"></script>
-		<script type="text/javascript">
-		  var demo = new router({
-		  	controller: {
-              "index": {},
-              "page1": {},
-              "page2": {}
-		  	}
+	  </content>
+	  <script type="text/javascript" src="../libs/zepto.min.js"></script>
+	  <script type="text/javascript" src="../libs/router.js"></script>
+	  <script type="text/javascript">
+	      //最简单的初始化
+	      var appRoute = new router();
+   		  //个性配置
+		  /*
+		  var appRoute = new router({
+			  	controller: {
+		          "index": {
+		          	title : "简单的页内路由",
+		          	before: function(from){
+		          		console.log("你将要从" + from + "打开首页");
+		          	},
+		          	after :function(from){
+		          		console.log("你成功打开首页，之前的页面是" + from );
+		          	}
+		          },
+		          "page1": {
+		          	title : "第一页"
+		          },
+		          "page2": {
+					title : "弟二页"
+		          }
+			  	},
+			  	index : "index",
+			  	refreshFn : function(){
+			  		console.log("你在刷新页面");
+			  	},
+			  	changeFn : function(){
+			  		console.log("你在切换页面");
+			  	},
+			  	awaysFn  : function(){
+			  		console.log("你想让我干嘛呢");
+			  	}
 		 });
-		</script>
+		 */
+	  </script>
 	</body>
 </html>
