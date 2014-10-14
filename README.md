@@ -119,6 +119,7 @@ router.js
         全局的当来源页的cotroller和打开页面的cotroller不同时的回调
          
  *@param awaysFn type Function
+        
         全局的切换页面后的回调
          
 
