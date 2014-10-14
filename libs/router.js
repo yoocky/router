@@ -98,10 +98,10 @@
                     }
                     callback();
                 } else {
-                    return "Error: not fount the page dom";
+                    return "Error: not found the page dom";
                 }
             } else {
-                return "Error: not fount the controller";
+                return "Error: not found the controller";
             }
 
         }
