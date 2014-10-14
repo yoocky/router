@@ -74,7 +74,9 @@ router.js
 | index | String | |   自动在页面上取第一个有效的cotroller|设置默认的首页|
 | wrap | String |   |   "singlePage"|路由作用范围的属性标识|
 | pageFlag | String |  |   "page"|路由内部的分页标识|
-         
+| path.root | String |  | 自动生成 | 当前页面的根路径等价于 location.origin + location.pathName| 
+| path.curPage | String |  | 动态维护 | 当前页面的索引值| 
+
 ####自定义 Events 的相关参数
 | 事件名 | 传递参数 | 触发时机|
 | ----   | ----   |---- |
