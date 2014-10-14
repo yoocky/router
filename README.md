@@ -70,11 +70,7 @@ router.js
         数据格式demo :
             
         {
-         "index" : {
-                title : "页面的title",
-                before: function(){},//打开前的回调
-                after: function(){}//打开后的回调
-            }
+         "index" : {}
         }
         
         为空对象或者未设置时会自动遍历初始化
