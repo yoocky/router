@@ -78,7 +78,7 @@ router.js
 ####自定义 Events 的相关参数
 | 事件名 | 参数 |功能描述|
 | ----   | ----   |---- |
-| beforeOpen  |     | {"pagename": {}}    |   自动生成|
+| beforeOpen  |  arguments[0]   | {"pagename": {}}    |   自动生成|
 | afterOpen   |  | |   自动在页面上取第一个有效的cotroller|
 
 ###router方法API
