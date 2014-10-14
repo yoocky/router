@@ -112,13 +112,13 @@ router.js
          
  *@param refreshFn type Function
         
-        通过路由刷新页面的回调
+        全局的当来源页的cotroller和打开页面的cotroller相同时的回调
          
  *@param changeFn type Function
         
-        全局切换页面后的回调
+        全局的当来源页的cotroller和打开页面的cotroller不同时的回调
          
  *@param awaysFn type Function
+        全局的切换页面后的回调
          
-         刷新切换后的总是回调
 
