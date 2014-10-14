@@ -86,4 +86,6 @@ router.js
 | 方法名 | 参数 | 功能描述|
 | ----   | ----   |---- |
 | open  |  arguments[0] String  预打开页面的索引<br/> arguments[1] Function 打开页面成功后的回调 | 打开一个新页面，并改变hash值 |
-| afterOpen   |  arguments[0]前一个页面的索引 arguments[1]已打开页的索引| 切换页面成功后 |
+| on   |  arguments[0] String 事件名 <br/> arguments[1] Function 回调函数| 添加事件绑定 |
+| off  |  arguments[0] String 事件名 <br/> arguments[1] Function 回调函数| 解除事件绑定 |
+| trigger  |  arguments[0] String 事件名 <br/> arguments[1] Function 回调函数| 触发事件 |
