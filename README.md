@@ -54,32 +54,28 @@ router.js
 ```javascript
     var appRoute = new router({
   	  	controller: {
-            "index": {
-            	title : "简单的页内路由",
-            	before: function(from){
-            		console.log("你将要从" + from + "打开首页");
-            	},
-            	after :function(from){
-            		console.log("你成功打开首页，之前的页面是" + from );
-            	}
-            },
-            "page1": {
-            	title : "第一页"
-            },
-            "page2": {
-  			title : "弟二页"
-            }
-  	  	},
-  	  	index : "index",
-  	  	refreshFn : function(){
-  	  		console.log("你在刷新页面");
-  	  	},
-  	  	changeFn : function(){
-  	  		console.log("你在切换页面");
-  	  	},
-  	  	awaysFn  : function(){
-  	  		console.log("你想让我干嘛呢");
-  	  	}
+	            "index": {
+	            	title : "简单的页内路由",
+	            	before: function(from){
+	            		console.log("你将要从" + from + "打开首页");
+	            	},
+	            	after :function(from){
+	            		console.log("你成功打开首页，之前的页面是" + from );
+	            	}
+	            },
+	            "page1": {},
+	            "page2": {}
+		},
+	    	index : "index",
+	    	refreshFn : function(){
+	    		console.log("你在刷新页面");
+	    	},
+	    	changeFn : function(){
+	    		console.log("你在切换页面");
+	    	},
+	    	awaysFn  : function(){
+	    		console.log("你想让我干嘛呢");
+	    	}
    });
 ```
 
