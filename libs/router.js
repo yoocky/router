@@ -1,5 +1,5 @@
 /**
- * @fileOverview  页内路由插件
+ * @fileOverview  基于hash的页内路由插件
  * @autor Yoocky
  */
 ; (function(w) {
