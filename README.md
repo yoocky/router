@@ -36,7 +36,7 @@ router.js
 	</content>
 ```
 
-####javascript
+####JavaScript
 #####1、自动化配置：
 ```javascript
     var appRoute = new router();
