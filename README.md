@@ -17,6 +17,42 @@ router.js
  * 6、支持页面切换绑定事件
  * 7、暂不支持页面切换自定义动画效果
  
+###初始化
+    ##最简单的初始化
+	     
+      var appRoute = new router();
+
+	   ##个性配置
+  		  var appRoute = new router({
+  			  	controller: {
+  		          "index": {
+  		          	title : "简单的页内路由",
+  		          	before: function(from){
+  		          		console.log("你将要从" + from + "打开首页");
+  		          	},
+  		          	after :function(from){
+  		          		console.log("你成功打开首页，之前的页面是" + from );
+  		          	}
+  		          },
+  		          "page1": {
+  		          	title : "第一页"
+  		          },
+  		          "page2": {
+  					title : "弟二页"
+  		          }
+  			  	},
+  			  	index : "index",
+  			  	refreshFn : function(){
+  			  		console.log("你在刷新页面");
+  			  	},
+  			  	changeFn : function(){
+  			  		console.log("你在切换页面");
+  			  	},
+  			  	awaysFn  : function(){
+  			  		console.log("你想让我干嘛呢");
+  			  	}
+  		 });
+ 
 ###配置说明
 
  *@param conroller type Object
