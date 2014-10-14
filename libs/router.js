@@ -18,7 +18,6 @@
  *      数据格式demo :
  *          {
  *            "index" : {
- *                  title : "页面的title",
  *                  before: function(){},//打开前的回调
  *                  after: function(){}//打开后的回调
  *              }
@@ -134,7 +133,8 @@
                     } else {
                         this.changeFn();
                         this.path.curPage = to;
-                        this._pushHash(to, _to.title);
+                        var title = current.attr('title');
+                        this._pushHash(to, title);
                     }
                     current.show().siblings().hide();
                     this.awaysFn();
