@@ -10,7 +10,7 @@ router.js
 
 ###功能描述：
  * 1、支持历史记录，响应浏览器的前进后退
- * 2、支持<a href="#controller" ></a> 格式跳转
+ * 2、支持'<a href="#controller" ></a>'格式跳转
  * 3、支持open("controller")方法打开页面
  * 4、支持设置默认首页，
  * 5、支持带hash值的url直接打开对应页面
