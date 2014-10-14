@@ -37,12 +37,12 @@ router.js
 ```
 
 ####javascript
-#####自动化配置：
+#####1、自动化配置：
 ```javascript
     var appRoute = new router();
 ```
 
-#####自定义配置：
+#####2、自定义配置：
 ```javascript
     var appRoute = new router({
   	  	controller: {
