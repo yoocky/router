@@ -71,14 +71,10 @@ router.js
 | 参数名 | 数据类型 | 数据结构 |默认值|功能描述|
 | ----   | ----     | ----     | ---- |----    |
 | controller  | Object    | {"pagename": {}}    |   自动生成|路由控制器|
-| index | String | "index" |   为空时自动在页面上取第一个有效的cotroller|设置默认的首页|
+| index | String | |   自动在页面上取第一个有效的cotroller|设置默认的首页|
+| wrap | String |   |   "singlePage"|路由作用范围的属性标识|
+| index | String |  |   "page"|路由内部的分页标识|
          
- pageFlag type String
-         
-         默认为"page"
-         存放controller的属性标志
-         
-
 ####自定义 Events 的相关参数
 
 ###router方法API
