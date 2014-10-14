@@ -6,7 +6,7 @@ router.js
 ###版本信息：
  * @fileOverview  基于hash的页内路由插件
  * @autor Yoocky <me@yoocky.com>
- * @ version 1.0
+ * @version 1.0
  
 ###库文件依赖
  
