@@ -7,7 +7,6 @@ router.js
  * @fileOverview  基于hash的页内路由插件
  * @autor Yoocky <me@yoocky.com>
  * @ version 1.0
- *
 ###功能描述
  * 1、支持历史记录，响应浏览器的前进后退
  * 2、支持<a href="#controller" ></a> 格式跳转
@@ -16,7 +15,6 @@ router.js
  * 5、支持带hash值的url直接打开对应页面
  * 6、支持页面切换绑定事件
  * 7、暂不支持页面切换自定义动画效果
- *
 ###配置说明
  *@param conroller type Object
         数据格式demo :
