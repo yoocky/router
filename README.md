@@ -73,7 +73,7 @@ router.js
 | controller  | Object    | {"pagename": {}}    |   自动生成|路由控制器|
 | index | String | |   自动在页面上取第一个有效的cotroller|设置默认的首页|
 | wrap | String |   |   "singlePage"|路由作用范围的属性标识|
-| index | String |  |   "page"|路由内部的分页标识|
+| pageFlag | String |  |   "page"|路由内部的分页标识|
          
 ####自定义 Events 的相关参数
 
