@@ -9,10 +9,13 @@ router.js
  * @ version 1.0
  
 ###库文件依赖
+ 
  *zepto.js 或者 *jQuery
 
 ###兼容性
- IE8+, webkit核
+ 
+ *IE8+, webkit核
+
 ###功能描述：
  * 1、支持历史记录，响应浏览器的前进后退
  * 2、支锚标记 href="#controller" 格式跳转
