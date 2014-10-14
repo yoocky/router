@@ -7,8 +7,10 @@ router.js
  * @fileOverview  基于hash的页内路由插件
  * @autor Yoocky <me@yoocky.com>
  * @ version 1.0
+ 
 ###库文件依赖
  *zepto.js 或者 *jQuery
+
 ###兼容性
  IE8+, webkit核
 ###功能描述：
