@@ -10,7 +10,7 @@ router.js
  
 ###库文件依赖
  
- *zepto.js 或者 *jQuery
+ *zepto.js 或者 jQuery
 
 ###兼容性
  
