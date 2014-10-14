@@ -25,6 +25,7 @@ router.js
 ```
 
 ####自定义配置：
+```javascript
     var appRoute = new router({
   	  	controller: {
             "index": {
@@ -54,6 +55,7 @@ router.js
   	  		console.log("你想让我干嘛呢");
   	  	}
    });
+```
 
 ###配置说明：
 
