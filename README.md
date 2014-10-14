@@ -18,13 +18,30 @@ router.js
  * 7、暂不支持页面切换自定义动画效果
  
 ###初始化：
+####html结构
+ 
+<content singlePage>
+		<div page="index">
+		  <h2>这是首页</h2>
+		  <p>这是一个简单的单页路由，吸取了angular和backbone的特点</p>
+		</div>
+		<div page="page1">
+		  <h2>这是第一个子页面</h2>
+		  <p>很简单的配置</p>
+		</div>
+		<div page="page2">
+		  <h2>这是第二个子页面</h2>
+		  <p>更改hash是可以产生历史记录的</p>
+		</div>
+	</content>
 
-####自动化配置：
+####javascript
+#####自动化配置：
 ```javascript
     var appRoute = new router();
 ```
 
-####自定义配置：
+#####自定义配置：
 ```javascript
     var appRoute = new router({
   	  	controller: {
@@ -57,7 +74,7 @@ router.js
    });
 ```
 
-###配置说明：
+###配置参数说明：
 
  *@param conroller type Object
         
