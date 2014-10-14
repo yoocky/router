@@ -53,29 +53,13 @@ router.js
 #####2、自定义配置：
 ```javascript
     var appRoute = new router({
-  	  	controller: {
-	            "index": {
-	            	title : "简单的页内路由",
-	            	before: function(from){
-	            		console.log("你将要从" + from + "打开首页");
-	            	},
-	            	after :function(from){
-	            		console.log("你成功打开首页，之前的页面是" + from );
-	            	}
-	            },
-	            "page1": {},
-	            "page2": {}
-		},
-	    	index : "index",
-	    	refreshFn : function(){
-	    		console.log("你在刷新页面");
-	    	},
-	    	changeFn : function(){
-	    		console.log("你在切换页面");
-	    	},
-	    	awaysFn  : function(){
-	    		console.log("你想让我干嘛呢");
-	    	}
+    	controller: {
+            "index": {},
+            "page1": {},
+            "page2": {}
+	},
+    	index : "index",
+	    	
    });
 ```
 
@@ -109,21 +93,5 @@ router.js
          
          默认为"page"
          存放controller的属性标志
-         
- *@param beforeFn type Function
-        
-        全局的切换页面前的回调
-         
- *@param refreshFn type Function
-        
-        全局的当来源页的cotroller和打开页面的cotroller相同时的回调
-         
- *@param changeFn type Function
-        
-        全局的当来源页的cotroller和打开页面的cotroller不同时的回调
-         
- *@param awaysFn type Function
-        
-        全局的切换页面后的回调
          
 
