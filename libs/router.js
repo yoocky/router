@@ -4,7 +4,7 @@
  */
 ; (function(w) {
     function router(options) {
-        options = options || {}
+        options = options || {};
         var that = this;
         var defaults = {
             wrap: 'singlePage',
@@ -15,7 +15,7 @@
             awaysFn: function() {},
             index: '',
             controller: {}
-        }
+        };
         $.extend(this, defaults, options);
         that._wrap = $('[' + this.wrap + ']');
         that._initController();
@@ -33,12 +33,12 @@
                     var page = $(this).attr('page');
                     if (page) {
                         //当未设置默认首页时取Dom中从上往下第一个有效的cotroller为默认首页
-                        if (that.index == '') {
+                        if (that.index === '') {
                             that.index = page;
                         }
                         that.controller[page] = {};
                     }
-                })
+                });
             }
         },
         _initPath: function() {
@@ -49,7 +49,7 @@
             var path = {
                 "root": root,
                 "curPage": curPage
-            }
+            };
             return path;
         },
         _getUrl: function(to) {
@@ -78,7 +78,7 @@
                 if (current.length) {
                     var _to = this.controller[to];
                     var from = this.path.curPage;
-                    this.before()
+                    this.before();
                     //执行页面打开前私有回调
                     if ($.isFunction(_to.before)) {
                         _to.before(from);
@@ -105,6 +105,6 @@
             }
 
         }
-    }
+    };
     w.router = router;
-})(window)
+})(window);
