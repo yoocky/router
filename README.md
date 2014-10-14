@@ -19,8 +19,8 @@ router.js
  
 ###初始化：
 ####html结构
- 
-<content singlePage>
+ ```html
+	<content singlePage>
 		<div page="index">
 		  <h2>这是首页</h2>
 		  <p>这是一个简单的单页路由，吸取了angular和backbone的特点</p>
@@ -34,6 +34,7 @@ router.js
 		  <p>更改hash是可以产生历史记录的</p>
 		</div>
 	</content>
+```
 
 ####javascript
 #####自动化配置：
