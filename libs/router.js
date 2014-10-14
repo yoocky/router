@@ -17,10 +17,7 @@
  *@param conroller type Object
  *      数据格式demo :
  *          {
- *            "index" : {
- *                  before: function(){},//打开前的回调
- *                  after: function(){}//打开后的回调
- *              }
+ *            "index" : {//待扩展如加入切换的动画效果},
  *          }
  *          为空对象或者未设置时会自动遍历初始化
  *@param index type String 
@@ -32,14 +29,6 @@
  *@param pageFlag type String
  *       默认为"page"
  *       存放controller的属性标志
- *@param beforeFn type Function
- *       全局的切换页面前的回调
- *@param refreshFn type Function
- *       通过路由刷新页面的回调
- *@param changeFn type Function
- *       全局切换页面后的回调
- *@param awaysFn type Function
- *       刷新切换后的总是回调
  */
 ; (function(w) {
     function router(options) {
@@ -48,10 +37,6 @@
         var defaults = {
             wrap: 'singlePage',
             pageFlag: 'page',
-            beforeFn: function() {},
-            refreshFn: function() {},
-            changeFn: function() {},
-            awaysFn: function() {},
             index: '',
             controller: {}
         };
@@ -65,6 +50,8 @@
     }
     //原型上的一些方法
     router.prototype = {
+        //存放自定义事件堆栈
+        _events : {},
         //当未配置路由时，自动补全路由列表
         _initController: function() {
             var that = this;
@@ -115,6 +102,44 @@
                 that.open(page);
             });
         },
+        on:  function (eventName, callback) {
+            if (typeof eventName === 'string') {
+                this._events[eventName] = this._events[eventName] || [];
+                if (callback) {
+                    this._events[eventName].push(callback);
+                }
+            } else {
+                for (var o in eventName) {
+                    this.on(o, eventName[o]);
+                }
+            }
+        },
+        off: function(eventName, callback) {
+            if (typeof eventName === 'string') {
+                if (this._events[eventName]) {
+                    for (var i = 0, len = this._events[eventName].length; i < len; i++) {
+                        if (!callback || this._events[eventName][i] === callback) {
+                            this._events[eventName].splice(i, 1);
+                            return;
+                        }
+                    }
+                }
+            } else {
+                for (var o in eventName) {
+                    this.off(o, eventName[o]);
+                }
+            }
+        },
+        trigger: function(eventName, args) {
+            if (this._events[eventName]) {
+                for (var i = 0, len = this._events[eventName].length; i < len; i++) {
+                    var eventCb = this._events[eventName][i];
+                    if (eventCb && eventCb.apply(null, args || []) === false) {
+                        return;
+                    }
+                }
+            }
+        },
         open: function(to, callback) {
             to = to || this.path.curPage;
             callback = $.isFunction(callback) ? callback: function() {};
@@ -123,25 +148,14 @@
                 if (current.length) {
                     var _to = this.controller[to];
                     var from = this.path.curPage;
-                    this.beforeFn();
-                    //执行页面打开前私有回调
-                    if ($.isFunction(_to.before)) {
-                        _to.before(from);
-                    }
-                    if (from == to) {
-                        this.refreshFn();
-                    } else {
-                        this.changeFn();
+                    this.trigger("beforeOpen", [from, to]);
+                    if(from != to){
                         this.path.curPage = to;
                         var title = current.attr('title');
                         this._pushHash(to, title);
                     }
                     current.show().siblings().hide();
-                    this.awaysFn();
-                    //执行页面打开后私有回调
-                    if ($.isFunction(_to.after)) {
-                        _to.after(from);
-                    }
+                    this.trigger("afterOpen", [from, to]);
                     callback();
                 } else {
                     return "Error: not found the page dom";

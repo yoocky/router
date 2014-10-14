@@ -11,15 +11,15 @@
 	      <a href="#page2">弟二页</a>
 	  </nav>
 	  <content singlePage>
-		<div page="index">
+		<div page="index" title="简单的页内路由">
 		  <h2>这是 首页</h2>
 		  <p>这是一个简单的单页路由，吸取了angular和backbone的特点，<br>用起来比backbone简单多了，<br/>唯一遗憾的就是不能用pushState</p>
 		</div>
-		<div page="page1">
+		<div page="page1" title="第一页">
 		  <h2>这是第一个子页面</h2>
 		  <p>很简单的配置</p>
 		</div>
-		<div page="page2">
+		<div page="page2" title="第二页">
 		  <h2>这是第二个子页面</h2>
 		  <p>你可以试试浏览器的回退按钮，是不是碉堡了,更改hash是可以产生历史记录的</p>
 		</div>
@@ -34,7 +34,6 @@
 		  var appRoute = new router({
 			  	controller: {
 		          "index": {
-		          	title : "简单的页内路由",
 		          	before: function(from){
 		          		console.log("你将要从" + from + "打开首页");
 		          	},
@@ -43,10 +42,8 @@
 		          	}
 		          },
 		          "page1": {
-		          	title : "第一页"
 		          },
 		          "page2": {
-					title : "弟二页"
 		          }
 			  	},
 			  	index : "index",
