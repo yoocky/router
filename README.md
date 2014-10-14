@@ -28,7 +28,7 @@ router.js
 ###实例化router：
 ####html结构
  ```html
-	<content singlePage>
+    <content singlePage>
 		<div page="index" title="首页">
 		  <h2>这是首页</h2>
 		  <p>这是一个简单的单页路由，吸取了angular和backbone的特点</p>
@@ -65,7 +65,13 @@ router.js
 
 ###router参数说明：
 ####基本配置参数
+| 参数名 | 数据类型 | 数据结构 | 默认值|
 
+
+| 表头1 | 表头2 | 表头3 |
+| ---- | ---- | ---- | 
+| 1    | 2    | 3    |
+| 1111 | 2222 | 3333 |
  conroller type Object
         
         数据格式demo :
