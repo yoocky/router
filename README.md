@@ -8,7 +8,7 @@ router.js
  * @autor Yoocky <me@yoocky.com>
  * @version 1.0
  
-###库文件依赖
+###库文件依赖：
  
  *zepto.js 或者 jQuery
 
@@ -81,7 +81,7 @@ router.js
 | beforeOpen  |  arguments[0] String 当前页的索引 <br/>arguments[1] String 预打开页的索引   | 预切换页面前 |
 | afterOpen   |  arguments[0] String 前一个页面的索引<br/> arguments[1] String 已打开页的索引| 切换页面成功后 |
 
-###router方法API
+###router方法API：
 
 | 方法名 | 参数 | 功能描述|
 | ----   | ----   |---- |
