@@ -31,7 +31,7 @@
  *       存放controller的属性标志
  */
 ; (function(w) {
-    function router(options) {
+    function Router(options) {
         options = options || {};
         var that = this;
         var defaults = {
@@ -166,5 +166,5 @@
 
         }
     };
-    w.router = router;
+    w.Router = Router;
 })(window);
