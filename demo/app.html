@@ -29,35 +29,12 @@
 	  <script type="text/javascript">
 	      //最简单的初始化
 	      var appRoute = new router();
-	   	  //个性配置
-		  /*
-		  var appRoute = new router({
-			  	controller: {
-		          "index": {
-		          	before: function(from){
-		          		console.log("你将要从" + from + "打开首页");
-		          	},
-		          	after :function(from){
-		          		console.log("你成功打开首页，之前的页面是" + from );
-		          	}
-		          },
-		          "page1": {
-		          },
-		          "page2": {
-		          }
-			  	},
-			  	index : "index",
-			  	refreshFn : function(){
-			  		console.log("你在刷新页面");
-			  	},
-			  	changeFn : function(){
-			  		console.log("你在切换页面");
-			  	},
-			  	awaysFn  : function(){
-			  		console.log("你想让我干嘛呢");
-			  	}
-		 });
-		 */
+	   	  appRoute.on('beforeOpen', function(from, to){
+	   	  	console.log(from, to);
+	   	  })
+	   	  appRoute.on('afterOpen', function(from, to){
+	   	  	console.log(from, to);
+	   	  })
 	  </script>
 	</body>
 </html>
