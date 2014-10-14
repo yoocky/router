@@ -59,26 +59,33 @@
         $.extend(this, defaults, options);
         that._wrap = $('[' + this.wrap + ']');
         that._initController();
-        that.path = that._initPath();
+        that._initIndex();
+        that._initPath();
         that._hashChange();
         that.open();
     }
     //原型上的一些方法
     router.prototype = {
+        //当未配置路由时，自动补全路由列表
         _initController: function() {
             var that = this;
             if ($.isEmptyObject(that.controller)) {
                 that._wrap.find('[' + this.pageFlag + ']').each(function() {
                     var page = $(this).attr('page');
                     if (page) {
-                        //当未设置默认首页时取Dom中从上往下第一个有效的cotroller为默认首页
-                        if (that.index === '') {
-                            that.index = page;
-                        }
                         that.controller[page] = {};
                     }
                 });
             }
+        },
+        //当未设置默认首页时从controller中取第一个为默认首页
+        _initIndex: function() {
+            if (this.index === '') {
+                for(var page in this.controller){
+                    this.index = page;
+                    break;
+                }
+            }   
         },
         _initPath: function() {
             var root = w.location.pathname;
@@ -89,7 +96,7 @@
                 "root": root,
                 "curPage": curPage
             };
-            return path;
+            this.path = path;
         },
         _getUrl: function(to) {
             var url = this.path.root + '#' + (to || this.path.curPage);
