@@ -20,7 +20,9 @@ router.js
 ###初始化：
 
 ####自动化配置：
+```javascript
     var appRoute = new router();
+```
 
 ####自定义配置：
     var appRoute = new router({
