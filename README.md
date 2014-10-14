@@ -76,7 +76,7 @@ router.js
 | pageFlag | String |  |   "page"|路由内部的分页标识|
          
 ####自定义 Events 的相关参数
-| 事件名 | 参数 | 触发时机|
+| 事件名 | 传递参数 | 触发时机|
 | ----   | ----   |---- |
 | beforeOpen  |  arguments[0] String 当前页的索引 <br/>arguments[1] String 预打开页的索引   | 预切换页面前 |
 | afterOpen   |  arguments[0] String 前一个页面的索引<br/> arguments[1] String 已打开页的索引| 切换页面成功后 |
