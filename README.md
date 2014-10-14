@@ -25,7 +25,7 @@ router.js
  * 6、支持页面切换绑定事件
  * 7、暂不支持页面切换自定义动画效果
  
-###初始化：
+###实例化router：
 ####html结构
  ```html
 	<content singlePage>
@@ -63,9 +63,10 @@ router.js
    });
 ```
 
-###配置参数说明：
+###router参数说明：
+####基本配置参数
 
- *@param conroller type Object
+ conroller type Object
         
         数据格式demo :
             
@@ -75,19 +76,22 @@ router.js
         
         为空对象或者未设置时会自动遍历初始化
 
- *@param index type String 
+ index type String 
  
        demo "index"
        为空时自动在页面上取第一个有效的cotroller
          
- *@param wrap type String 
+ wrap type String 
          
          默认为"singlePage" 
          路由有效范围的属性标志
          
- *@param pageFlag type String
+ pageFlag type String
          
          默认为"page"
          存放controller的属性标志
          
 
+####自定义 Events 的相关参数
+
+###router方法API
