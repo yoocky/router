@@ -71,26 +71,7 @@ router.js
 | 参数名 | 数据类型 | 数据结构 |默认值|功能描述|
 | ----   | ----     | ----     | ---- |----    |
 | controller  | Object    | {"pagename": {}}    |   自动生成|路由控制器|
-| 1111 | 2222 | 3333 |   24|1233|
- conroller type Object
-        
-        数据格式demo :
-            
-        {
-         "index" : {}
-        }
-        
-        为空对象或者未设置时会自动遍历初始化
-
- index type String 
- 
-       demo "index"
-       为空时自动在页面上取第一个有效的cotroller
-         
- wrap type String 
-         
-         默认为"singlePage" 
-         路由有效范围的属性标志
+| index | String | "index" |   为空时自动在页面上取第一个有效的cotroller|设置默认的首页|
          
  pageFlag type String
          
