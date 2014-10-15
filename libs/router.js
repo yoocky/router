@@ -141,7 +141,7 @@
             }
         },
         open: function(to, callback) {
-            to = to || this.path.curPage;
+            to = to || this.index;
             callback = $.isFunction(callback) ? callback: function() {};
             if (to in this.controller) {
                 var current = this._wrap.find('[' + this.pageFlag + '=' + to + ']');
