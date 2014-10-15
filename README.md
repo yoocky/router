@@ -14,8 +14,9 @@ router.js
 
 ###兼容性
  
-Chrome	Firefox (Gecko)	Internet Explorer	Opera	Safari	IPHONE	Android
-5+	3.6 (1.9.2)+	8.0+(标准模式)	11.60+	5.0+	5.0+	2.2
+|Chrome	|Firefox |(Gecko)	|IE|	Opera|	Safari|	IPHONE|	Android|
+| ----   | ----     | ----     | ---- |----    |----     | ---- |----    |
+|5+	|3.6 (1.9.2)+|	8.0+(标准模式)|	11.60+	|5.0+|	5.0+|	2.2|
 
 ###功能描述：
  * 1、支持历史记录，响应浏览器的前进后退
