@@ -29,10 +29,10 @@
 	  <script type="text/javascript">
 	      //最简单的初始化
 	      var appRoute = new Router();
-	   	  appRoute.on('beforeOpen', function(from, to){
+	   	  appRoute.on('beforeOpen', function(to, from){
 	   	  	console.log(from, to);
 	   	  })
-	   	  appRoute.on('afterOpen', function(from, to){
+	   	  appRoute.on('afterOpen', function(to, from){
 	   	  	console.log(from, to);
 	   	  })
 	  </script>
