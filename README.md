@@ -12,7 +12,7 @@ router.js
  
  *zepto.js 或者 jQuery
 
-###兼容性
+###兼容性:
  
 |Chrome	|Firefox |(Gecko)	|IE|	Opera|	Safari|	IPHONE|	Android|
 | ----   | ----     | ----     | ---- |----    |----     | ---- |----    |
