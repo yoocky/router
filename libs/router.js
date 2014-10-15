@@ -46,7 +46,7 @@
         that._initIndex();
         that._initPath();
         that._hashChange();
-        that.open();
+        that.open(that.path.curPage);
     }
     //原型上的一些方法
     Router.prototype = {
