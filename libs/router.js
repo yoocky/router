@@ -148,14 +148,14 @@
                 if (current.length) {
                     var _to = this.controller[to];
                     var from = this.path.curPage;
-                    this.trigger("beforeOpen", [from, to]);
+                    this.trigger("beforeOpen", [to, from]);
                     if(from != to){
                         this.path.curPage = to;
                         var title = current.attr('title');
                         this._pushHash(to, title);
                     }
                     current.show().siblings().hide();
-                    this.trigger("afterOpen", [from, to]);
+                    this.trigger("afterOpen", [to, from]);
                     callback();
                 } else {
                     return "Error: not found the page dom";
