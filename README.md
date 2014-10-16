@@ -9,7 +9,7 @@ router.js
  * @version 1.0
  
 ###库文件依赖：
- *zepto.js 或者 jQuery 1.7+
+ * zepto.js 或者 jQuery 1.7+
 
 ###兼容性:
  
