@@ -88,6 +88,7 @@
             }
         },
         _initEvent: function() {
+            var that = this;
             $.each(['on', 'off', 'trigger'], function(i, func) {
                 that[func] = function() {
                     var $events = $(that._events);
