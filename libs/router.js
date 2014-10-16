@@ -79,10 +79,6 @@
             };
             this.path = path;
         },
-        _getUrl: function(to) {
-            var url = this.path.root + '#' + (to || this.path.curPage);
-            return url;
-        },
         _pushHash: function(hash, title) {
             w.location.hash = hash;
             if (title) {
