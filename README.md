@@ -31,7 +31,6 @@ router.js
 ####html结构
  ```html
     <content singlePage>
-    		//推荐加上display：none 的样式属性
 		<div page="index" title="首页" style="display:none">
 		  <h2>这是首页</h2>
 		  <p>这是一个简单的单页路由，吸取了angular和backbone的特点</p>
