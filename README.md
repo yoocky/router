@@ -79,10 +79,10 @@ router.js
 
 ####部分状态参数（只读）
 
-| 参数名 | 数据类型 | 数据结构 |默认值|功能描述|
+| 参数名 | 数据类型 |默认值|功能描述|
 | ----   | ----     | ----     | ---- |----    |
-| path.root | String |  | 自动生成 | 当前页面的根路径<br/>等价于 location.origin + location.pathname| 
-| path.curPage | String |  | 动态维护 | 当前页面的索引值| 
+| path.root | String |  自动生成 | 当前页面的根路径<br/>等价于 location.origin + location.pathname| 
+| path.curPage | String | 动态维护 | 当前页面的索引值| 
 
 ####自定义 Events 的相关参数
 | 事件名 | 传递参数 | 触发时机|
