@@ -1,4 +1,4 @@
-/**
+ /**
  *版本信息
  * @fileOverview  基于hash的页内路由插件
  * @autor Yoocky <me@yoocky.com>
@@ -30,7 +30,8 @@
  *       默认为"page"
  *       存放controller的属性标志
  */
-; (function(w) {
+;
+(function(w) {
     function Router(options) {
         options = options || {};
         var defaults = {
@@ -40,12 +41,12 @@
             controller: {}
         };
         $.extend(this, defaults, options);
-        this.init();
+        this.init()
     }
     //原型上的一些方法
     Router.prototype = {
         //存放自定义事件堆栈
-        _events : {},
+        _events: {},
         //当未配置路由时，自动补全路由列表
         _initController: function() {
             var that = this;
@@ -61,22 +62,26 @@
         //当未设置默认首页时从controller中取第一个为默认首页
         _initIndex: function() {
             if (this.index === '') {
-                for(var page in this.controller){
+                for (var page in this.controller) {
                     this.index = page;
                     break;
                 }
-            }   
+            }
         },
         _initPath: function() {
             var root = w.location.pathname;
             var curPage = w.location.hash.replace("#", '');
             //如何hash值无效，默认回到首页
-            curPage = curPage in this.controller ? curPage: this.index;
+            curPage = curPage in this.controller ? curPage : this.index;
             var path = {
                 "root": root,
                 "curPage": curPage
             };
             this.path = path;
+        },
+        _getUrl: function(to) {
+            var url = this.path.root + '#' + (to || this.path.curPage);
+            return url;
         },
         _pushHash: function(hash, title) {
             w.location.hash = hash;
@@ -86,26 +91,27 @@
         },
         _initEvent: function() {
             var that = this;
-            w.addEventListener('hashchange',function() {
+            w.addEventListener('hashchange', function() {
                 var page = w.location.hash.replace('#', '');
                 that.open(page);
             });
-			$.each(['on', 'off', 'trigger'], function(i, func) {
-				that[func] = function() {
-					var $events = $(that._events);
-					$.fn[func].apply($events, arguments);
-				};
-			});
+            $.each(['on', 'off', 'trigger'], function(i, func) {
+                that[func] = function() {
+                    var $events = $(that._events);
+                    $.fn[func].apply($events, arguments);
+                };
+            });
         },
         open: function(to, callback) {
             to = to || this.index;
-            callback = $.isFunction(callback) ? callback: function() {};
+            callback = $.isFunction(callback) ? callback : function() {
+            };
             if (to in this.controller) {
                 var current = this._wrap.find('[' + this.pageFlag + '=' + to + ']');
                 if (current.length) {
                     var from = this.path.curPage;
                     this.trigger("beforeOpen", [to, from]);
-                    if(from != to){
+                    if (from != to) {
                         this.path.curPage = to;
                         var title = current.attr('title');
                         this._pushHash(to, title);
@@ -119,7 +125,7 @@
             } else {
                 return "Error: not found the controller";
             }
-
+        
         },
         init: function() {
             this._wrap = $('[' + this.wrap + ']');
