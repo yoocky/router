@@ -41,8 +41,9 @@
             controller: {}
         };
         $.extend(this, defaults, options);
+        this._addEvent();
         this.init();
-        //首次打开页面后再绑定hashchange事件,防止hash为无效值时多一次历史记录
+        //首次打开页面后再绑定hashchange事件
         this._bindHashChange();
     }
     //原型上的一些方法
@@ -87,7 +88,7 @@
                 document.title = title;
             }
         },
-        _initEvent: function() {
+        _addEvent: function() {
             var that = this;
             $.each(['on', 'off', 'trigger'], function(i, func) {
                 that[func] = function() {
@@ -133,7 +134,6 @@
             this._initController();
             this._initIndex();
             this._initPath();
-            this._initEvent();
             this.open(this.path.curPage);
         }
     };
