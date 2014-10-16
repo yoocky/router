@@ -31,15 +31,16 @@ router.js
 ####html结构
  ```html
     <content singlePage>
-		<div page="index" title="首页">
+    		//推荐加上display：none 的样式属性
+		<div page="index" title="首页" style="display:none">
 		  <h2>这是首页</h2>
 		  <p>这是一个简单的单页路由，吸取了angular和backbone的特点</p>
 		</div>
-		<div page="page1" title="页面1">
+		<div page="page1" title="页面1" style="display:none">
 		  <h2>这是第一个子页面</h2>
 		  <p>很简单的配置</p>
 		</div>
-		<div page="page2" title="页面2">
+		<div page="page2" title="页面2" style="display:none">
 		  <h2>这是第二个子页面</h2>
 		  <p>更改hash是可以产生历史记录的</p>
 		</div>
