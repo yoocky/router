@@ -33,7 +33,6 @@
 ; (function(w) {
     function Router(options) {
         options = options || {};
-        var that = this;
         var defaults = {
             wrap: 'singlePage',
             pageFlag: 'page',
@@ -41,12 +40,7 @@
             controller: {}
         };
         $.extend(this, defaults, options);
-        that._wrap = $('[' + this.wrap + ']');
-        that._initController();
-        that._initIndex();
-        that._initPath();
-        that._hashChange();
-        that.open(that.path.curPage);
+        this.init();
     }
     //原型上的一些方法
     Router.prototype = {
@@ -84,61 +78,24 @@
             };
             this.path = path;
         },
-        _getUrl: function(to) {
-            var url = this.path.root + '#' + (to || this.path.curPage);
-            return url;
-        },
         _pushHash: function(hash, title) {
             w.location.hash = hash;
             if (title) {
                 document.title = title;
             }
         },
-        _hashChange: function() {
+        _initEvent: function() {
             var that = this;
-            w.addEventListener('hashchange',
-            function() {
+            w.addEventListener('hashchange',function() {
                 var page = w.location.hash.replace('#', '');
                 that.open(page);
             });
-        },
-        on:  function (eventName, callback) {
-            if (typeof eventName === 'string') {
-                this._events[eventName] = this._events[eventName] || [];
-                if (callback) {
-                    this._events[eventName].push(callback);
-                }
-            } else {
-                for (var o in eventName) {
-                    this.on(o, eventName[o]);
-                }
-            }
-        },
-        off: function(eventName, callback) {
-            if (typeof eventName === 'string') {
-                if (this._events[eventName]) {
-                    for (var i = 0, len = this._events[eventName].length; i < len; i++) {
-                        if (!callback || this._events[eventName][i] === callback) {
-                            this._events[eventName].splice(i, 1);
-                            return;
-                        }
-                    }
-                }
-            } else {
-                for (var o in eventName) {
-                    this.off(o, eventName[o]);
-                }
-            }
-        },
-        trigger: function(eventName, args) {
-            if (this._events[eventName]) {
-                for (var i = 0, len = this._events[eventName].length; i < len; i++) {
-                    var eventCb = this._events[eventName][i];
-                    if (eventCb && eventCb.apply(null, args || []) === false) {
-                        return;
-                    }
-                }
-            }
+			$.each(['on', 'off', 'trigger'], function(i, func) {
+				that[func] = function() {
+					var $events = $(that._events);
+					$.fn[func].apply($events, arguments);
+				};
+			});
         },
         open: function(to, callback) {
             to = to || this.index;
@@ -146,7 +103,6 @@
             if (to in this.controller) {
                 var current = this._wrap.find('[' + this.pageFlag + '=' + to + ']');
                 if (current.length) {
-                    var _to = this.controller[to];
                     var from = this.path.curPage;
                     this.trigger("beforeOpen", [to, from]);
                     if(from != to){
@@ -164,6 +120,14 @@
                 return "Error: not found the controller";
             }
 
+        },
+        init: function() {
+            this._wrap = $('[' + this.wrap + ']');
+            this._initController();
+            this._initIndex();
+            this._initPath();
+            this._initEvent();
+            this.open(this.path.curPage);
         }
     };
     w.Router = Router;
