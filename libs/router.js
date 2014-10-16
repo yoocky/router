@@ -41,7 +41,7 @@
             controller: {}
         };
         $.extend(this, defaults, options);
-        this.init()
+        this.init();
         //首次打开页面后再绑定hashchange事件,防止hash为无效值时多一次历史记录
         this._bindHashChange();
     }
