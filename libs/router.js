@@ -42,9 +42,8 @@
         };
         $.extend(this, defaults, options);
         this._addEvent();
-        this.init();
-        //首次打开页面后再绑定hashchange事件
         this._bindHashChange();
+        this.init();
     }
     //原型上的一些方法
     Router.prototype = {
