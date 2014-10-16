@@ -42,6 +42,8 @@
         };
         $.extend(this, defaults, options);
         this.init()
+        //首次打开页面后再绑定hashchange事件,防止hash为无效值时多一次历史记录
+        this._bindHashChange();
     }
     //原型上的一些方法
     Router.prototype = {
@@ -86,16 +88,18 @@
             }
         },
         _initEvent: function() {
-            var that = this;
-            w.addEventListener('hashchange', function() {
-                var page = w.location.hash.replace('#', '');
-                that.open(page);
-            });
             $.each(['on', 'off', 'trigger'], function(i, func) {
                 that[func] = function() {
                     var $events = $(that._events);
                     $.fn[func].apply($events, arguments);
                 };
+            });
+        },
+        _bindHashChange: function(){
+            var that = this;
+            w.addEventListener('hashchange', function() {
+                var page = w.location.hash.replace('#', '');
+                that.open(page);
             });
         },
         open: function(to, callback) {
