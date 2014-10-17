@@ -12,7 +12,7 @@
  * 5、支持带hash值的url直接打开对应页面
  * 6、支持页面切换绑定事件
  * 7、暂不支持页面切换自定义动画效果
- *
+ **/
 ;
 (function(w) {
     function Router(options) {
