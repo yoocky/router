@@ -118,7 +118,6 @@
             } else {
                 return "Error: not found the controller";
             }
-        
         }
     };
     w.Router = Router;
