@@ -9,7 +9,7 @@ router.js
  * @version 1.0
  
 ###库文件依赖：
- * zepto.js 或者 jQuery 1.7+
+ * zepto.js 或者 jQuery
 
 ###兼容性:
  
@@ -86,8 +86,8 @@ router.js
 ####自定义 Events 的相关参数
 | 事件名 | 传递参数 | 触发时机|
 | ----   | ----   |---- |
-| beforeOpen  |  arguments[0] String 预打开页的索引 <br/> arguments[2] String 当前页的索引  | 预切换页面前 |
-| afterOpen   |  arguments[1] String 已打开页的索引 <br/> arguments[2] String 前一个页面的索引| 切换页面成功后 |
+| beforeOpen  |  arguments[0] String 预打开页的索引 <br/> arguments[1] String 当前页的索引  | 预切换页面前 |
+| afterOpen   |  arguments[0] String 已打开页的索引 <br/> arguments[1] String 前一个页面的索引| 切换页面成功后 |
 
 ###router方法API：
 
