@@ -25,11 +25,10 @@
         };
         $.extend(this, defaults, options);
         this._wrap = $('[' + this.wrap + ']');
-        this._addEvent();
-        this._bindHashChange();
         this._initController();
         this._initIndex();
         this._initPath();
+        this._bindHashChange();
         this.open(this.path.curPage);
     }
     //原型上的一些方法
@@ -74,15 +73,6 @@
                 document.title = title;
             }
         },
-        //继承事件机制
-        _addEvent: function() {
-            var that = this;
-            $.each(['on', 'off', 'trigger'], function(i, func) {
-                that[func] = function() {
-                    $.fn[func].apply(that._wrap, arguments);
-                };
-            });
-        },
         //给hashchange事件绑定回调
         _bindHashChange: function() {
             var that = this;
@@ -90,6 +80,44 @@
                 var page = w.location.hash.replace('#', '');
                 that.open(page);
             });
+        },
+        on:  function (eventName, callback) {
+            if (typeof eventName === 'string') {
+                this._events[eventName] = this._events[eventName] || [];
+                if (callback) {
+                    this._events[eventName].push(callback);
+                }
+            } else {
+                for (var o in eventName) {
+                    this.on(o, eventName[o]);
+                }
+            }
+        },
+        off: function(eventName, callback) {
+            if (typeof eventName === 'string') {
+                if (this._events[eventName]) {
+                    for (var i = 0, len = this._events[eventName].length; i < len; i++) {
+                        if (!callback || this._events[eventName][i] === callback) {
+                            this._events[eventName].splice(i, 1);
+                            return;
+                        }
+                    }
+                }
+            } else {
+                for (var o in eventName) {
+                    this.off(o, eventName[o]);
+                }
+            }
+        },
+        trigger: function(eventName, args) {
+            if (this._events[eventName]) {
+                for (var i = 0, len = this._events[eventName].length; i < len; i++) {
+                    var eventCb = this._events[eventName][i];
+                    if (eventCb && eventCb.apply(null, args || []) === false) {
+                        return;
+                    }
+                }
+            }
         },
         //打开一个页面的方法
         open: function(to, callback) {
