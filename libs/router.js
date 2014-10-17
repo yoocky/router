@@ -34,8 +34,6 @@
     }
     //原型上的一些方法
     Router.prototype = {
-        //存放自定义事件堆栈
-        _events: {},
         //当未配置路由时，自动补全路由列表
         _initController: function() {
             var that = this;
@@ -81,8 +79,7 @@
             var that = this;
             $.each(['on', 'off', 'trigger'], function(i, func) {
                 that[func] = function() {
-                    var $events = $(that._events);
-                    $.fn[func].apply($events, arguments);
+                    $.fn[func].apply(that._wrap, arguments);
                 };
             });
         },
