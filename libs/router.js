@@ -33,6 +33,8 @@
     }
     //原型上的一些方法
     Router.prototype = {
+        //存放自定义事件堆栈
+        _events: {},
         //当未配置路由时，自动补全路由列表
         _initController: function() {
             var that = this;
