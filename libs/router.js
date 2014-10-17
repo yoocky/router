@@ -13,23 +13,6 @@
  * 6、支持页面切换绑定事件
  * 7、暂不支持页面切换自定义动画效果
  *
- *配置说明
- *@param conroller type Object
- *      数据格式demo :
- *          {
- *            "index" : {//待扩展如加入切换的动画效果},
- *          }
- *          为空对象或者未设置时会自动遍历初始化
- *@param index type String 
- *       demo "index"
- *       为空时自动在页面上取第一个有效的cotroller
- *@param wrap type String 
- *       默认为"singlePage" 
- *       路由有效范围的属性标志
- *@param pageFlag type String
- *       默认为"page"
- *       存放controller的属性标志
- */
 ;
 (function(w) {
     function Router(options) {
@@ -74,6 +57,7 @@
                 }
             }
         },
+        //初始化根路径和当前页面索引
         _initPath: function() {
             var root = w.location.pathname;
             var curPage = w.location.hash.replace("#", '');
@@ -85,12 +69,14 @@
             };
             this.path = path;
         },
+        //改变页面hash和title值
         _pushHash: function(hash, title) {
             w.location.hash = hash;
             if (title) {
                 document.title = title;
             }
         },
+        //继承事件机制
         _addEvent: function() {
             var that = this;
             $.each(['on', 'off', 'trigger'], function(i, func) {
@@ -100,6 +86,7 @@
                 };
             });
         },
+        //给hashchange事件绑定回调
         _bindHashChange: function(){
             var that = this;
             w.addEventListener('hashchange', function() {
@@ -107,6 +94,7 @@
                 that.open(page);
             });
         },
+        //打开一个页面的方法
         open: function(to, callback) {
             to = to || this.index;
             callback = $.isFunction(callback) ? callback : function() {
