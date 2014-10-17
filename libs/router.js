@@ -84,7 +84,7 @@
             });
         },
         //给hashchange事件绑定回调
-        _bindHashChange: function(){
+        _bindHashChange: function() {
             var that = this;
             w.addEventListener('hashchange', function() {
                 var page = w.location.hash.replace('#', '');
