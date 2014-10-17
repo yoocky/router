@@ -41,9 +41,13 @@
             controller: {}
         };
         $.extend(this, defaults, options);
+        this._wrap = $('[' + this.wrap + ']');
         this._addEvent();
         this._bindHashChange();
-        this.init();
+        this._initController();
+        this._initIndex();
+        this._initPath();
+        this.open(this.path.curPage);
     }
     //原型上的一些方法
     Router.prototype = {
@@ -127,13 +131,6 @@
                 return "Error: not found the controller";
             }
         
-        },
-        init: function() {
-            this._wrap = $('[' + this.wrap + ']');
-            this._initController();
-            this._initIndex();
-            this._initPath();
-            this.open(this.path.curPage);
         }
     };
     w.Router = Router;
